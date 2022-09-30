@@ -3,6 +3,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native"
 import GridViewItem, { GProduct } from "./GridViewItem"
 
 const GridView = ({items}: {items: GProduct[]}) => {
+  console.log(items);
   return (
     <View style={{
       width: '100%',

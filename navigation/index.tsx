@@ -62,15 +62,16 @@ function BottomTabNavigator() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: {
-          backgroundColor: '#1ba9ff'
+          backgroundColor: '#1ba9ff',
         },
         headerStyle: {
           backgroundColor: '#1BA9FF',
         },
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
         },
-      }}>
+      }}
+    >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
@@ -97,7 +98,7 @@ function BottomTabNavigator() {
                 style={{ marginRight: 30 }}
               />
             </TouchableOpacity>
-          )
+          ),
         })}
       />
       <BottomTab.Screen
@@ -105,16 +106,20 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: '',
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-home-outline" color="white" />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-home-outline" color="white" />
+          ),
           tabBarShowLabel: false,
           headerLeft: () => (
-            <View style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: 230
-            }}>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: 200,
+              }}
+            >
               <TouchableOpacity>
                 <Ionicons
                   name="arrow-back-outline"
@@ -123,33 +128,37 @@ function BottomTabNavigator() {
                   style={{ marginLeft: 30 }}
                 />
               </TouchableOpacity>
-              <View style={{
-                width: '100%',
-                height: 30,
-                marginLeft: 10,
-                backgroundColor: 'white',
-                display: 'flex',
-                flexDirection: 'row'
-              }}>
-                <Ionicons name="search" size={30} style={{ marginHorizontal: 5 }} />
+              <View
+                style={{
+                  width: '100%',
+                  height: 30,
+                  marginLeft: 10,
+                  backgroundColor: 'white',
+                  display: 'flex',
+                  flexDirection: 'row',
+                }}
+              >
+                <Ionicons
+                  name="search"
+                  size={30}
+                  style={{ marginHorizontal: 5 }}
+                />
                 <TextInput placeholder="Dây cáp usb" style={{ fontSize: 16 }} />
               </View>
             </View>
           ),
           headerRight: () => (
-            <View style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              width: 70,
-              marginRight: 30
-            }}>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                width: 70,
+                marginRight: 30,
+              }}
+            >
               <TouchableOpacity>
-                <Ionicons
-                  name="ios-cart-outline"
-                  size={25}
-                  color="white"
-                />
+                <Ionicons name="ios-cart-outline" size={25} color="white" />
               </TouchableOpacity>
               <TouchableOpacity>
                 <Ionicons
@@ -157,9 +166,9 @@ function BottomTabNavigator() {
                   size={25}
                   color="white"
                 />
-              </TouchableOpacity> 
+              </TouchableOpacity>
             </View>
-          )
+          ),
         }}
       />
       <BottomTab.Screen
@@ -167,8 +176,10 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: '',
-          tabBarIcon: ({ color }) => <TabBarIcon name="return-up-back-sharp" color="white" />,
-          tabBarShowLabel: false
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="return-up-back-sharp" color="white" />
+          ),
+          tabBarShowLabel: false,
         }}
       />
     </BottomTab.Navigator>
