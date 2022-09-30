@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable, TouchableOpacity } from 'react-native';
+import { ColorSchemeName, Pressable, TextInput, TouchableOpacity, View } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -58,7 +58,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabTwo"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: {
@@ -70,26 +70,6 @@ function BottomTabNavigator() {
         headerTitleStyle: {
           color: 'white'
         },
-        headerLeft: () => (
-          <TouchableOpacity>
-            <Ionicons
-              name="arrow-back-outline"
-              size={25}
-              color="white"
-              style={{ marginLeft: 30 }}
-            />
-          </TouchableOpacity>
-        ),
-        headerRight: () => (
-          <TouchableOpacity>
-            <Ionicons
-              name="ios-cart-outline"
-              size={25}
-              color="white"
-              style={{ marginRight: 30 }}
-            />
-          </TouchableOpacity>
-        ),
       }}>
       <BottomTab.Screen
         name="TabOne"
@@ -98,6 +78,26 @@ function BottomTabNavigator() {
           title: 'Chat',
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color="white" />,
           tabBarShowLabel: false,
+          headerLeft: () => (
+            <TouchableOpacity>
+              <Ionicons
+                name="arrow-back-outline"
+                size={25}
+                color="white"
+                style={{ marginLeft: 30 }}
+              />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <TouchableOpacity>
+              <Ionicons
+                name="ios-cart-outline"
+                size={25}
+                color="white"
+                style={{ marginRight: 30 }}
+              />
+            </TouchableOpacity>
+          )
         })}
       />
       <BottomTab.Screen
@@ -106,7 +106,60 @@ function BottomTabNavigator() {
         options={{
           title: '',
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-home-outline" color="white" />,
-          tabBarShowLabel: false
+          tabBarShowLabel: false,
+          headerLeft: () => (
+            <View style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: 230
+            }}>
+              <TouchableOpacity>
+                <Ionicons
+                  name="arrow-back-outline"
+                  size={25}
+                  color="white"
+                  style={{ marginLeft: 30 }}
+                />
+              </TouchableOpacity>
+              <View style={{
+                width: '100%',
+                height: 30,
+                marginLeft: 10,
+                backgroundColor: 'white',
+                display: 'flex',
+                flexDirection: 'row'
+              }}>
+                <Ionicons name="search" size={30} style={{ marginHorizontal: 5 }} />
+                <TextInput placeholder="Dây cáp usb" style={{ fontSize: 16 }} />
+              </View>
+            </View>
+          ),
+          headerRight: () => (
+            <View style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: 70,
+              marginRight: 30
+            }}>
+              <TouchableOpacity>
+                <Ionicons
+                  name="ios-cart-outline"
+                  size={25}
+                  color="white"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Ionicons
+                  name="ellipsis-horizontal-sharp"
+                  size={25}
+                  color="white"
+                />
+              </TouchableOpacity> 
+            </View>
+          )
         }}
       />
       <BottomTab.Screen
